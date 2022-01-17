@@ -5,4 +5,4 @@
 ### Run project:
 * mvn spring-boot:run
 ### Access api at:
-* http://localhost:8080/api/users
+* http://localhost:8080/api/rentals

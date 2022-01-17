@@ -4,13 +4,15 @@ import bg.tilchev.rentalsapi.exception.RentalException;
 import bg.tilchev.rentalsapi.resource.RentalResource;
 import bg.tilchev.rentalsapi.service.RentalService;
 import lombok.RequiredArgsConstructor;
-import org.springframework.boot.jackson.JsonObjectDeserializer;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Map;
 
+@Slf4j
 @RequiredArgsConstructor
 @RestController
 @RequestMapping("api/rentals")
@@ -24,8 +26,10 @@ public class RentalController {
     }
 
     @GetMapping
-    public ResponseEntity<List<RentalResource>> getUsers() {
-        return ResponseEntity.ok(rentalService.getRentals());
+    public ResponseEntity<List<RentalResource>> getUsers(
+            @RequestParam(required = false) Map<String, String> criteria) {
+        log.debug(criteria.toString());
+        return ResponseEntity.ok(rentalService.getRentals(criteria));
     }
 
     @ExceptionHandler({ RentalException.class })
