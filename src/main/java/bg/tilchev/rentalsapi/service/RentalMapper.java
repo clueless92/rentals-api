@@ -7,7 +7,6 @@ import bg.tilchev.rentalsapi.resource.RentalResource;
 import bg.tilchev.rentalsapi.resource.UserResource;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 

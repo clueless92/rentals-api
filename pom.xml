@@ -10,7 +10,7 @@
     </parent>
     <groupId>bg.tilchev</groupId>
     <artifactId>rentals-api</artifactId>
-    <version>0.0.3</version>
+    <version>0.0.4</version>
     <name>rentals-api</name>
     <description>Outdoorsy Rentals demo project</description>
     <properties>
@@ -56,6 +56,34 @@
                         </exclude>
                     </excludes>
                 </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.jacoco</groupId>
+                <artifactId>jacoco-maven-plugin</artifactId>
+                <version>0.8.7</version>
+                <configuration>
+                    <excludes>
+                        <exclude>**/entity/**</exclude>
+                        <exclude>**/exception/**</exclude>
+                        <exclude>**/resource/**</exclude>
+                        <exclude>**/RentalsApiApplication.*</exclude>
+                        <exclude>**/RentalMapper.*</exclude>
+                    </excludes>
+                </configuration>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>prepare-agent</goal>
+                        </goals>
+                    </execution>
+                    <execution>
+                        <id>report</id>
+                        <phase>prepare-package</phase>
+                        <goals>
+                            <goal>report</goal>
+                        </goals>
+                    </execution>
+                </executions>
             </plugin>
         </plugins>
     </build>

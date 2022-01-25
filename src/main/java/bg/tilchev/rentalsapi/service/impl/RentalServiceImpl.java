@@ -62,10 +62,10 @@ public class RentalServiceImpl implements RentalService {
                 }
             }
             String offset = criteria.get("offset");
-            String limit = criteria.get("limit");
             if (offset != null) {
                 rentals = rentals.skip(Long.parseLong(offset));
             }
+            String limit = criteria.get("limit");
             if (limit != null) {
                 rentals = rentals.limit(Long.parseLong(limit));
             }

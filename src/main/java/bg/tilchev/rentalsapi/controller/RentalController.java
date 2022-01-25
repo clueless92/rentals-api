@@ -21,12 +21,12 @@ public class RentalController {
     private final RentalService rentalService;
 
     @GetMapping("/{id}")
-    public ResponseEntity<RentalResource> getUsers(@PathVariable Integer id) {
+    public ResponseEntity<RentalResource> getRental(@PathVariable Integer id) {
         return ResponseEntity.ok(rentalService.getRental(id));
     }
 
     @GetMapping
-    public ResponseEntity<List<RentalResource>> getUsers(
+    public ResponseEntity<List<RentalResource>> getRentals(
             @RequestParam(required = false) Map<String, String> criteria) {
         log.debug(criteria.toString());
         return ResponseEntity.ok(rentalService.getRentals(criteria));
